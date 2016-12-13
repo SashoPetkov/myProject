@@ -1086,7 +1086,7 @@ textarea {
 
 @media only screen and (max-width: 414px) {
     #wrapper {
-        font-size: 1.15em;
+        font-size: 1.05em;
     }
             /* MAIN Container*/
 
@@ -1146,15 +1146,21 @@ textarea {
         margin-bottom: 2%;
     }
     main section > article:last-of-type {
-        height: 311.719px;
+        height: 255px;
         margin-top: 2%;
         margin-bottom: 2%;
         width: 100%;
     }
+    main section > article:last-of-type input{
+        margin: 13% 20px;
+    }
     main section:first-of-type input {
-        margin: 10%;
+        margin: 7%;
         width: 89%;
         margin-left: 5%;
+    }
+    main section:first-of-type input {
+        font-size: 0.7em;
     }
     main section:first-of-type input[type="submit"] {
         font-size: 1.5em;
@@ -1162,6 +1168,7 @@ textarea {
     main > section:first-of-type {
         height: auto;
         background-size: inherit;
+        padding-bottom: 10px;    
     }
     main section > article > button, #wrapper > .seventhSection > button,
     .contacts > form > input[type="submit"] {
@@ -1175,7 +1182,7 @@ textarea {
     }
     main > section {
         background-position: -290px 0;
-        background-size: auto 751px !important;
+        background-size: auto 907px !important;
     }
     main p {
         margin-top: 6%;
@@ -1218,14 +1225,37 @@ textarea {
         width: 90%;
         text-align: center;
     }
+    #wrapper > .fistSection article {
+        width: 100%;
+    }
+    .mainCarousel .carousel .arrows {
+        padding: 0;
+    }
+    .mainCarousel .arrows .mainConteiner {
+        width: 126%;
+        margin: 0;
+    }
+    .mainCarousel .imageRotate {
+        margin-left: 260px;
+    }
     #wrapper > section button {
         width: 200px;
         height: 50px;
-        font-size: 1.5em;
+        font-size: 1em;
     } 
     #wrapper > section > img:last-child {
         margin: 4% auto;
         width: auto;
+    }
+    .sign2 {
+        margin-left: 0;
+    }
+    article > header > h2 {
+        line-height: 20px;
+        font-size: 1em; 
+    }
+    form:first-of-type{
+        height: 170px;
     }
     
         /* Section 2 */
@@ -1321,6 +1351,10 @@ textarea {
     }
     .sixthSection > section > h1 {
         text-align: center;
+        font-size: 1.5em;
+    }
+    .fourthSection h1, .fifthSection h1, .sixthSection h1, .seventhSection h1, .contacts > section h1 {
+        font-size: 1.2em;
     }
     
         /* Section 7 */
@@ -1362,7 +1396,7 @@ textarea {
         height: auto;
     }
     #wrapper > .lastFooter ul {
-        width: 100%;
+        width: 95%;
         justify-content: space-between;
         flex-wrap: wrap;
     }
@@ -1452,8 +1486,13 @@ textarea {
 #tab_3 {
     width: 100%;
     height: 302px;
-    background-color: deepskyblue;
+    /*background-color: deepskyblue;*/
+    border-bottom: 2px solid rgba(51, 51, 51, 1);
+    border-top: 2px solid rgba(51, 51, 51, 1);
     display: none;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
 }
 .positionRel {
     position: relative;
@@ -1465,4 +1504,22 @@ main section article:first-of-type h2 {
     text-align: center;
     padding: 8px;
 }
-
+#tab_3 div {
+    height: 204px;
+    width: 225px;
+}
+#tab_3 img {
+    height: 180px;
+    width: 225px;
+}
+#tab_3 div {
+    margin: 0 5px;
+    display: inline-block;
+}
+#tab_3 > div > p {
+    margin: 0;
+}
+.warning {
+    text-align: center;
+    color: red;
+} 

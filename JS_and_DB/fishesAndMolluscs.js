@@ -257,11 +257,6 @@
             }
         });
     }
-        // GO to TOP smooth
-
-        $('#GoTop').click(function(){
-            $('body').animate({scrollTop : 0},800);
-        });
 
 })();
 

@@ -87,7 +87,7 @@
             // BUTTON click go to location
         $('.fistSection button').click(
             function goTools () {
-                window.location.href = "http://stackoverflow.com";
+                window.location.href = "fishesAndMolluscs.html";
             }
         );
 
@@ -174,6 +174,7 @@
             event.preventDefault();
 
             $('#tab_3').slideDown(2000);
+            $('#tab_3').css('display', 'flex');
 
             $('.fistSection > article > button').hide();
             $('article > .mainCarousel').hide();
@@ -218,6 +219,53 @@
              '.rightArrow1', '.imageRotate1 li');
             
         });
+
+                    // THIRD DROP DOWN
+        var molluscsImg = '<div>' +
+                            '<p>name</p>' +
+                            '<img src="url_here" />' +
+                          '</div>';
+
+        $.getJSON('JS_and_DB/mekoteli.json', function(imgMolluscs){
+            var myMolluscs = imgMolluscs;
+
+            for (var g = 0; g<myMolluscs.length; g++){
+
+                var molluscsPic = molluscsImg.replace('url_here', myMolluscs[g].image)
+                                            .replace('name', myMolluscs[g].desc);
+
+                $('#tab_3').append(molluscsPic);
+            }
+
+                    // IMG to BIG
+
+            $('<span id="bigTab"></span>').appendTo('#tab_3').css({
+                                                            width: '420px',
+                                                            height: '350px',
+                                                            position: 'absolute',
+                                                            display: 'none'});
+            
+            $('#tab_3 img').click(function(){
+                var myURL = this.src;
+                var clickShow = true;
+                if ($('#bigTab').css('display') === 'none'){
+                    $('#bigTab').show('slow').css({
+                        'backgroundImage': 'url(' + myURL + ')',
+                        'backgroundPosition': 'center',
+                        'backgroundSize': 'cover'
+                    });
+                    clickShow = false;
+                } else {
+                    $('#bigTab').hide('slow');
+                    clickShow = true;
+                }
+            });
+            $('#bigTab').click(function() {
+                $(this).hide('slow');
+            });
+        });
+
+
 
                     // BUTTON DROPDOWN small screen
 
@@ -325,6 +373,7 @@
         } else {
             $('#registration').show('slow');
         }
+        $('main section article p').removeClass('warning');   
     }
 
     $('.sign1').on('click', signIN);
@@ -335,6 +384,7 @@
         } else {
             $('#signIN').show('slow');
         }
+        $('main section article p').removeClass('warning');   
     }
             // SEARCH for EXISTING user
 
@@ -351,10 +401,11 @@
         butOut.appendTo('main section article:first-of-type p');
         
         $('main section article:last-of-type header').append('<p></p>');
+        $('main #registration header').append('<p></p>');
 
         $('main article:last-of-type input[type="submit"]').on('click', singInOut);
 
-        function SignTrue (){
+        function signTrue (){
             butOut.css( 'display', 'block');
             // console.log('this is true FULL user');
             $('main section article:last-of-type p:last-of-type').hide();
@@ -363,14 +414,12 @@
             $('.sign1').hide();
             $('.sign2').hide();
             $('main section article:last-of-type header p').text('');
-            $('<h2>Здравейте '+ CookieName() +' !</h2>').appendTo('main section article:first-of-type');
+            $('<h2>Здравейте '+ cookieName() +' !</h2>').appendTo('main section article:first-of-type');
         }
 
-        function SignFalse() {
+        function signFalse() {
             // $('main section article:last-of-type header p').text('Please try again. No such USER or PASSWORD');
-            $('main section article:last-of-type p:last-of-type').css({
-                                                            'color': 'red', 
-                                                            'text-align': 'center'});
+            $('main section article:last-of-type p:last-of-type').addClass('warning');
         }
 
         $('main article .sign3').on('click', function (){
@@ -389,34 +438,36 @@
 
                // COOKIES - start
 
+        // create new cookie
         function createCookie(){
             var thisDate = new Date();
             thisDate.setTime(thisDate.getTime() + 1000*60*60*24*365);
             var oneYear = thisDate.toUTCString();
             if ($('#registration').css('display') !== 'none') {
                 nameCookie = $('#registration input:first-of-type').val();
-                console.log('тук! SIGN-UP!');
+                // console.log('тук! SIGN-UP!');
                 
             } else {
                 nameCookie = $('#signIN input:first-of-type').val();
-                console.log('тук SIGN-IN!');
+                // console.log('тук SIGN-IN!');
             }
             document.cookie = 'name='+ nameCookie +';expires=' + oneYear + ';path=/';
         }
-            
+        // check for recent cookie
         function checkCookie() {
             if (document.cookie != "") {
-                SignTrue ();
+                signTrue ();
             } else if ($('#signIN input:first-of-type').val() != ""){
                createCookie();
             }
         }
 
-        function CookieName (){
+        function cookieName (){
             var arr = document.cookie.split('=');
             return arr[1];
         }
-
+        
+        // when DOM is ready  check for cookie
         $(document).ready(checkCookie());
         
                         // COOKIES - end
@@ -432,10 +483,10 @@
                 $('.sign3').on('mouseover').css('cursor', 'pointer');
 
                 if(element.username === userNInput.val() && element.password === passWInput.val()){
-                    SignTrue ();
                     createCookie();
+                    signTrue ();
                 } else {
-                    SignFalse();
+                    signFalse();
                 }
             });
         }
@@ -447,12 +498,18 @@
         function makeReg (event){
             event.preventDefault();
             if($('#registration input[type="text"]').val() !== '' &&
-                $('#registration input[type="email"]').val() !== '' &&
+                $('#registration input[type="email"]').val().match(/[\@]/) &&
                 $('#registration input[type="password"]').val() !== ''){
-                createCookie();
-                SignTrue ();
+                
+                if($('#registration input[type="password"]').val().length > 6) {
+                    createCookie();
+                    signTrue ();
+                } else {
+                    $('#registration p').text('The password is too short (min. 6 symbols)').addClass('warning');
+                }
+           
             } else if ($('#registration').css('display') !== 'none') {
-                alert('please fill ALL fields');
+                alert('please fill ALL fields or you are not use @');
             }
         }
     });
@@ -501,6 +558,30 @@
             // console.log(persons instanceof (Comments));
         }
     });
+
+    // var timeYear = new Date();
+    // var christmasTime = timeYear.getMonth();
+    // console.log(christmasTime);
+    
+    // if (christmasTime === 11) {
+    //     putSnow();
+    //     function putSnow (){
+    //         var snowSize = 20;
+    //         var posX = (Math.random()*($(document).width()) - snowSize).toFixed();
+    //         var posY = (Math.random()*($(document).width()) - snowSize).toFixed();
+    //         var mySnowFlake =  $('<img src="../images/snowflake.png" class="snowflake" />').css({
+    //             position: 'absolute',
+    //             width: '20px',
+    //             height: '20px',    
+    //             top: posY + 'px',
+    //             left: posX + 'px'
+    //         });
+            
+    //     }
+    //     $(mySnowFlake).appendTo('body').fadeIn('fast', putSnow());
+    // } 
+        
+        // $('.snowflake').animate({top: '1000px', left: '400px',}, 10000, 'linear');
 })();
 
         // var nameCookie = $(userNInput.val);

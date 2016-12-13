@@ -12,7 +12,11 @@
                             height: winHeight,
                             position: 'fixed'
                         });
-        var mytext = ['bubalosoosos', 'zlatidadsdasad', 'sashodasdad', 'dasdad', 'hfghfjhf'];
+        var mytext = ['Lorem ipsum dolor sit amet, consectetur adipisicing elit. Totam suscipit sapiente eum unde culpa sequi blanditiis, repellat voluptatem amet fugiat, beatae fuga molestias eaque expedita at vitae fugit optio ea.', 
+                    'Lorem ipsum dolor sit amet, consectetur adipisicing elit. Eum, natus mollitia. Est illum error doloribus, natus recusandae nisi unde nam quod necessitatibus perspiciatis corporis omnis accusantium vel. Cum quisquam, fuga.', 
+                    'Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quam reprehenderit voluptatum, iusto alias labore consequatur sed amet perspiciatis doloremque architecto. Animi mollitia quasi quia dicta amet illo magni maxime eos!', 
+                    'Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quaerat facilis earum ullam explicabo cupiditate ipsum eligendi voluptatem non libero eveniet modi quia quae beatae reprehenderit facere, nisi assumenda quis qui.', 
+                    'Lorem ipsum dolor sit amet, consectetur adipisicing elit. Soluta reiciendis labore enim exercitationem quaerat, consequuntur magnam animi recusandae eos ducimus inventore incidunt ex corporis perferendis obcaecati nihil, aperiam quidem quo.'];
 
         // $.getJSON('JS_and_DB/bgAdventure2.json', function (data1){
             // var advImgBg1 = data1;
@@ -270,6 +274,11 @@
             }
         });
     }
+        // GO to TOP smooth
+
+        $('#GoTop').click(function(){
+            $('body').animate({scrollTop : 0},800);
+        });
 
 })();
 

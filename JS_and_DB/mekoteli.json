@@ -1,0 +1,18 @@
+[
+    {
+        "desc": "1. Октопод",
+        "image": "images/fishes/molluscs/kalmar.jpg"
+    },
+    {
+        "desc": "2. Сепия",
+        "image": "images/fishes/molluscs/oktopod.jpg"
+    },
+    {
+        "desc": "3. Калмар",
+        "image": "images/fishes/molluscs/sepiq.jpg"
+    },
+    {
+        "desc": "4. Морски таралеж",
+        "image": "images/fishes/molluscs/morski_taralej.jpg"
+    }
+]

@@ -3,15 +3,20 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- <meta name="description" content="This site is dedicated to fishing, fishes and beautiful places. You will see at first my fishing adventures in Bulgaria and Greece. Everybody who want to see photos of beautifull places can see my gallery. You can see a lot of different sea and freshwater fishes and some information of it. You can read about different tools that every fisherman must have and use."> -->
+    <meta name="description" content="Този сайт е посветен на риболова, рибите и красиви места. В началото можете да видите първите ми риболовни приключения в България и Гърция. Всеки, който иска да види снимки на красиви места, може да види моята галерия. Можете да видите много различни морски и сладководни риби и малко информация за тях. Можете да прочетете за различни инструменти, които всеки рибар трябва да имат и използват.">
+    <meta name="author" content="Aleksandar Petkov">
     <link rel="stylesheet" href="styles/reset.css">
     <link href="https://fonts.googleapis.com/css?family=Open+Sans+Condensed:300,300i,700|Raleway:100,300,400,700" rel="stylesheet">
     <link rel="stylesheet" href="font-awesome-4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="styles/preLoader.css">
     <link rel="stylesheet" href="styles/style.css">
     <link rel="stylesheet" href="styles/style-carousel.css">
     <link rel="icon" href="favicon-32x32.png">
-    <title>myProject</title>
+    <title>Fishing Site</title>
 </head>
 <body>
+    <script src="JS_and_DB/preLoad.js"></script>
     <!-- <div id="fb-root"></div>
     <script>(function(d, s, id) {   
                 var js, fjs = d.getElementsByTagName(s)[0];
@@ -115,6 +120,7 @@
                 </a>
                 <a href="#">
                     <p>МЕКОТЕЛИ</p>
+                    <p>и др.</p>
                 </a>
             </div>
             <article>
@@ -177,27 +183,27 @@
         </section>
         <section class="fourthSection" id="Four">
             <section>
-                <h1>Why this is awesome</h1>
+                <h1>Включете се и ВИЕ</h1>
                 <hr class="orange">
                 <p>
-                    Lorem ipsum dolor sit amet, consectetur adipisicing elit.
+                    Изпратете ни Вашите истории, които да поместим на сайта
                 </p>
             </section>
             <div class="main">
                 <article>
                     <i class="fa fa-lightbulb-o fa-2x" aria-hidden="true"></i>
-                    <h3>Thoughtful Design</h3>
-                    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Consequatur fuga quae nobis laudantium mollitia unde exercitationem doloribus molestias quisquam doloremque maiores suscipit autem in ad aliquid, veniam aperiam pariatur.</p>
+                    <h3>Вашите приключения</h3>
+                    <p>Пишете ни за Вашите риболовни приключения. Всички забавни и пленяващи истории в света на риболова ще бъдат поместени на отделна Ваша страница в сайта.</p>
                 </article>
                 <article>
                     <i class="fa fa-keyboard-o fa-2x" aria-hidden="true"></i>
-                    <h3>Well Crafted</h3>
-                    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Velit hic ex incidunt, quae voluptatum libero tempore repudiandae illum minima, est voluptates tenetur dicta repellendus voluptate temporibus, nulla deleniti debitis, quasi!</p>
+                    <h3>Вашите снимки</h3>
+                    <p>Винаги може да ни изпращате и снимки, който сте 'нащракали' по време на вашия излет, както сред природата, така и по време на всеки риболовен излет.</p>
                 </article>
                 <article>
                     <i class="fa fa-bolt fa-2x" aria-hidden="true"></i>
-                    <h3>Easy to Customise</h3>
-                    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quasi architecto minima distinctio earum similique repellendus nam incidunt aperiam quo magnam odit, alias iure sed, culpa est molestiae voluptas modi iusto. Lorem ipsum dolor sit amet, consectetur.</p>
+                    <h3>Вашите съвети</h3>
+                    <p>Винаги може да помогнете и на други риболовци, когато подадете информация за успешните и неуспешните си излети. Това ще спаси от разочарование много колеги!</p>
                 </article>
             </div>
         </section>
@@ -296,20 +302,18 @@
         </section>
         <section class="seventhSection" >
             <div id="fb-root"></div>
-            <script>
-                (function(d, s, id) {
-                    var js, fjs = d.getElementsByTagName(s)[0];
-                    if (d.getElementById(id)) return;
-                    js = d.createElement(s); js.id = id;
-                    js.src = "//connect.facebook.net/bg_BG/sdk.js#xfbml=1&version=v2.8";
-                    fjs.parentNode.insertBefore(js, fjs);
-                }(document, 'script', 'facebook-jssdk'));
-            </script>
+            <script>(function(d, s, id) {
+                var js, fjs = d.getElementsByTagName(s)[0];
+                if (d.getElementById(id)) return;
+                js = d.createElement(s); js.id = id;
+                js.src = "//connect.facebook.net/bg_BG/sdk.js#xfbml=1&version=v2.8";
+                fjs.parentNode.insertBefore(js, fjs);
+            }(document, 'script', 'facebook-jssdk'));</script>
 
             <h1 class="whiteText">Може да ни намерите и във Facebook</h1>
             <hr class="white">
             <p>Ако искате да видите всички снимки, които не се събраха в сайта, елате на нашата Facebook страница</p>
-            <div class="fb-like" data-href="https://www.facebook.com/obfishingsite/?ref=aymt_homepage_panel" data-layout="box_count" data-action="like" data-size="large" data-show-faces="false" data-share="true"></div>
+            <div class="fb-like" data-href="https://www.facebook.com/obfishingsite/" data-layout="box_count" data-action="like" data-size="small" data-show-faces="true" data-share="true"></div>
             <!-- <button>Download</button> -->
         </section>
         <section class="contacts">
