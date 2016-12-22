@@ -1,7 +1,7 @@
 
 .preLoader {
     background-color: rgba(51,51,51,0.9);
-    height: 1450px;
+    height: 5440px;
     width: 100%;
     position: absolute;
     top: 0;
@@ -11,6 +11,7 @@
     align-items: flex-start;
 }
 .preImg {
+    position: fixed;
     width: 242px;
     height: 141px;
     background-image: url('../images/preLoadImg.png');
@@ -26,4 +27,13 @@
 @keyframes preLoadFish {
     from{opacity: 0;}
     to{opacity: 1;}
+}
+.wait {
+    position: fixed;
+    top: 350px;
+    color: white;
+    letter-spacing: 3px;
+    font-size: 20px;
+    font-family: sans-serif;
+    font-weight: 100;
 }

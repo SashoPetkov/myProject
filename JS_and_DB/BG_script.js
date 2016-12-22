@@ -142,7 +142,7 @@
                         function myFunc(texts) {
                             for (var k=0; k<=$('section>div').length;k++){
                                 myStory (texts[k-1], 'section>div:nth-of-type('+ k +')');
-                        console.log(myStory());
+                        // console.log(myStory());
                             }
                         }
                         myFunc(mytext);

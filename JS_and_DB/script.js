@@ -1,88 +1,104 @@
-// $('.myClick').click(function() {
-//     $(this).css({'width':'450px', 'height':'330px'});
-// });
-
-// $('.myClick').click(function() {
-//     var myPic = $(this).addClass('larger');
-//     $('.larger').toggle(1000);
-// });
-
 
 (function () {
     'use strict';
     $.getJSON("JS_and_DB/saltWfishes.json", function(data) {
         var listSaltWfish = data;
 
+            /////////////////// FIRST - CAROUSEL start
 
-        var myPicAll = '<li>' +
-                            '<p>descriptions</p>' +
-                            '<img src="linkToImage"/>' +
-                        '</li>';
+        // var myPicAll = '<li>' +
+        //                     '<p>descriptions</p>' +
+        //                     '<img src="linkToImage"/>' +
+        //                 '</li>';
 
 
 
-        for (var i=0; i<listSaltWfish.length; i++) {
-            var myContainer = myPicAll.replace('descriptions', listSaltWfish[i].discription).
-                                        replace('linkToImage', listSaltWfish[i].image);
-            $('.imageRotate').append(myContainer);
-            // console.log(myContainer);
-        }
+        // for (var i=0; i<listSaltWfish.length; i++) {
+        //     var myContainer = myPicAll.replace('descriptions', listSaltWfish[i].discription).
+        //                                 replace('linkToImage', listSaltWfish[i].image);
+        //     $('.imageRotate').append(myContainer);
+        //     // console.log(myContainer);
+        // }
         
                     // POPup the image IN FORNT the container
         // var popUpElement = $(".mainConteiner .popUp");
-       ///////////////////start
-        function myCarousel (myPopUp, myContImg, myLeftA, myRightA, liRotate) {
-            var popUpElement = $(myPopUp);  //".popUp"
+        // function myCarousel (myPopUp, myContImg, myLeftA, myRightA, liRotate) {
+        //     var popUpElement = $(myPopUp);  //".popUp"
 
-            $(myContImg).addClass('myImage'); // '.mainConteiner img'
-            $('.myImage').click(function () {
-                var imageUrl = 'url(' + this.src + ')';
-                $(this).toggleClass('large');
-                popUpElement.css("background-image", imageUrl).show().addClass("large");
-            });
+        //     $(myContImg).addClass('myImage'); // '.mainConteiner img'
+        //     $('.myImage').click(function () {
+        //         var imageUrl = 'url(' + this.src + ')';
+        //         $(this).toggleClass('large');
+        //         popUpElement.css("background-image", imageUrl).show().addClass("large");
+        //     });
 
-            popUpElement.click(function () {
-               $(this).removeClass('large').hide();
-            });
-                                // SLIDER left and right
+        //     popUpElement.click(function () {
+        //        $(this).removeClass('large').hide();
+        //     });
+        //                         // SLIDER left and right
 
-            var slide = 0;
-            // $('.imageRotate').addClass('positionRel');
-            var leftAr = $(myLeftA);   // '.leftArrow'
-            var rightAr = $(myRightA);  // '.rightArrow'
-            var myLiRotate = $(liRotate);     // '.imageRotate li'
+        //     var slide = 0;
+        //     // $('.imageRotate').addClass('positionRel');
+        //     var leftAr = $(myLeftA);   // '.leftArrow'
+        //     var rightAr = $(myRightA);  // '.rightArrow'
+        //     var myLiRotate = $(liRotate);     // '.imageRotate li'
 
-            rightAr.click( function () {
-                // var lastLi = $('.imageRotate li:last-of-type');
-                slide -= 260;
-                // $('.myImage').css('transform', 'translateX(' + slide + 'px)');
-                myLiRotate.css('transform', 'translateX(' + slide + 'px)');
-                myLiRotate.addClass('smoothRot');
-                // $( ".imageRotate" ).animate({ "left": "+=260px" }, "slow" );
-            });
-            var clickL = 0;    
-            leftAr.click( function () {
-                clickL++;
-                // var firstLi = $('.imageRotate li:first-of-type');
-                slide += 260;
-                // $('.myImage').css('transform', 'translateX(' + slide + 'px)');
-                myLiRotate.css('transform', 'translateX(' + slide + 'px)');
-                myLiRotate.addClass('smoothRot');
-                // $( ".imageRotate" ).animate({ "left": "-=260px" }, "slow" );
+        //     rightAr.click( function () {
+        //         // var lastLi = $('.imageRotate li:last-of-type');
+        //         slide -= 260;
+        //         // $('.myImage').css('transform', 'translateX(' + slide + 'px)');
+        //         myLiRotate.css('transform', 'translateX(' + slide + 'px)');
+        //         myLiRotate.addClass('smoothRot');
+        //         // $( ".imageRotate" ).animate({ "left": "+=260px" }, "slow" );
+        //     });
+        //     var clickL = 0;    
+        //     leftAr.click( function () {
+        //         clickL++;
+        //         // var firstLi = $('.imageRotate li:first-of-type');
+        //         slide += 260;
+        //         // $('.myImage').css('transform', 'translateX(' + slide + 'px)');
+        //         myLiRotate.css('transform', 'translateX(' + slide + 'px)');
+        //         myLiRotate.addClass('smoothRot');
+        //         // $( ".imageRotate" ).animate({ "left": "-=260px" }, "slow" );
 
-            });
+        //     });
 
-            // // STOP ARROWS
-            // $('').on('click', function (){
+        //     var click = Math.floor(listSaltWfish.length/2);
+            
+        //     $('.rightArrow').click( function(){
+        //         if(click < listSaltWfish.length -3) {
+        //             click++;
+        //             $('.imageRotate > li').css({
+        //                 'background-image': 'url("' + listSaltWfish[click].image + '")',
+        //             });
+        //             console.log(click);
+        //         }else {
+        //            $('.imageRotate > li').css({
+        //                 'background-image': 'url("' + listSaltWfish[listSaltWfish.length -1].image + '")',
+        //             }); 
+        //         }
+        //     });
+            
+        //     $('.leftArrow').click( function(){
+        //         // var infinite = 
+        //         if(click > 0) {
+        //             click--;
+        //             $('.imageRotate > li').css({
+        //                 'background-image': 'url("' + listSaltWfish[click].image + '")',
+        //             });
+        //             console.log(click);
+        //         } else {
+        //             $('.imageRotate > li').css({
+        //                 'background-image': 'url("' + listSaltWfish[0].image + '")',
+        //             }); 
+        //         }
+        //     });
+        // }
 
-            // });
+        // myCarousel (".popUp", '.mainConteiner img', '.leftArrow', 
+        //     '.rightArrow', '.imageRotate li');
 
-        }
-
-        myCarousel (".popUp", '.mainConteiner img', '.leftArrow', 
-            '.rightArrow', '.imageRotate li');
-
-        //////////////////////end
+                ////////////////////// FIRST - CAROUSEL end
 
             // BUTTON click go to location
         $('.fistSection button').click(
@@ -141,8 +157,10 @@
         $(window).scroll( function () {
             if ($(this).scrollTop() < 680) {
                 $('#GoTop').fadeOut(800);
+                $(mySnowFlake).css('color', 'white');
             } else {
                 $('#GoTop').fadeIn(800);
+                $(mySnowFlake).css('color', '#DAA520');
             }
         });
 
@@ -189,36 +207,35 @@
         $.getJSON('JS_and_DB/freshWfishes.json', function(data1){
             var freshWfishes = data1;
 
-        // var freshWfishes = [];
-        // var freshWImages;
-            var newCarousel = '<div class="mainCarousel">' +
-                                    '<div class="carousel">' +
-                                        '<ul class="arrows">' +
-                                            '<li class="leftArrow1"></li>' +
-                                            '<li class="mainConteiner1">' +
-                                                '<ul class="imageRotate1">' +
+            /////////////////// SECOND - CAROUSEL start
+            // var newCarousel = '<div class="mainCarousel">' +
+            //                         '<div class="carousel">' +
+            //                             '<ul class="arrows">' +
+            //                                 '<li class="leftArrow1"></li>' +
+            //                                 '<li class="mainConteiner1">' +
+            //                                     '<ul class="imageRotate1">' +
 
-                                                '</ul>' +
-                                                '<div class="popUp1"></div>' +
-                                            '</li>' +
-                                            '<li class="rightArrow1"></li>' +
-                                        '</ul>' +
-                                    '</div>' +
-                                '</div>';
+            //                                     '</ul>' +
+            //                                     '<div class="popUp1"></div>' +
+            //                                 '</li>' +
+            //                                 '<li class="rightArrow1"></li>' +
+            //                             '</ul>' +
+            //                         '</div>' +
+            //                     '</div>';
 
-            $('#tab_2').append(newCarousel);
+            // $('#tab_2').append(newCarousel);
 
-            for (var i = 0; i < freshWfishes.length; i++) {
-                var freshWImages = myPicAll.replace('descriptions', freshWfishes[i].disc).
-                                                 replace('linkToImage', freshWfishes[i].src);
+        //     for (var i = 0; i < freshWfishes.length; i++) {
+        //         var freshWImages = myPicAll.replace('descriptions', freshWfishes[i].disc).
+        //                                          replace('linkToImage', freshWfishes[i].src);
 
-                $('#tab_2 .imageRotate1').append(freshWImages);
-                // console.log('imageRotate1');
-            }
-            myCarousel (".popUp1", '.mainConteiner1 img', '.leftArrow1',
-             '.rightArrow1', '.imageRotate1 li');
+        //         $('#tab_2 .imageRotate1').append(freshWImages);
+        //         // console.log('imageRotate1');
+        //     }
+        //     myCarousel (".popUp1", '.mainConteiner1 img', '.leftArrow1',
+        //      '.rightArrow1', '.imageRotate1 li');
             
-        });
+        // });
 
                     // THIRD DROP DOWN
         var molluscsImg = '<div>' +
@@ -264,6 +281,8 @@
                 $(this).hide('slow');
             });
         });
+        });
+            /////////////////// SECOND - CAROUSEL start
 
 
 
@@ -501,7 +520,7 @@
                 $('#registration input[type="email"]').val().match(/[\@]/) &&
                 $('#registration input[type="password"]').val() !== ''){
                 
-                if($('#registration input[type="password"]').val().length > 6) {
+                if($('#registration input[type="password"]').val().length > 5) {
                     createCookie();
                     signTrue ();
                 } else {
@@ -509,7 +528,7 @@
                 }
            
             } else if ($('#registration').css('display') !== 'none') {
-                alert('please fill ALL fields or you are not use @');
+                $('#registration p').text('please fill ALL fields or you are not use @').addClass('warning');
             }
         }
     });
@@ -558,292 +577,25 @@
             // console.log(persons instanceof (Comments));
         }
     });
-
-    // var timeYear = new Date();
-    // var christmasTime = timeYear.getMonth();
+            // CHRISTMAS
+    var timeYear = new Date();
+    var christmasTime = timeYear.getMonth();
     // console.log(christmasTime);
     
-    // if (christmasTime === 11) {
-    //     putSnow();
-    //     function putSnow (){
-    //         var snowSize = 20;
-    //         var posX = (Math.random()*($(document).width()) - snowSize).toFixed();
-    //         var posY = (Math.random()*($(document).width()) - snowSize).toFixed();
-    //         var mySnowFlake =  $('<img src="../images/snowflake.png" class="snowflake" />').css({
-    //             position: 'absolute',
-    //             width: '20px',
-    //             height: '20px',    
-    //             top: posY + 'px',
-    //             left: posX + 'px'
-    //         });
-            
-    //     }
-    //     $(mySnowFlake).appendTo('body').fadeIn('fast', putSnow());
-    // } 
+    if (christmasTime === 11) {
+        var mySnowFlake =  $('<i class="fa fa-snowflake-o fa-2x" aria-hidden="true"></i>').appendTo('body');
+        $(document).ready($(mySnowFlake).addClass('mySnowFl'));
         
-        // $('.snowflake').animate({top: '1000px', left: '400px',}, 10000, 'linear');
+    } 
+    
+        // GO to fishing tools
+    $('.fifthSection section:first-of-type').mouseover(function(){
+        $(this).css('cursor', 'pointer');
+    }); 
+    $('.fifthSection section:first-of-type').on('click', function(){
+        window.location.href = 'fishingTools.html';
+    });
+
 })();
-
-        // var nameCookie = $(userNInput.val);
-        //                 $('input[type="submit"]').on('click', createCookie);
-        //                 function createCookie(){
-        //                     var thisDate = Date();
-        //                     var thurtySec = 30000;
-        //                     document.cookie = 'name='+name+';expires=' + (thisDate+thurtySec) + ';path=/';
-        //                 }
-
-
-
-            // изграждане на for loop за генериране на инстанции на коментари - ЕТАП 1
-
-    // var person1 = new Comments(myPeopleComm[0].comment, myPeopleComm[0].user, 
-    //     myPeopleComm[0].img, myPeopleComm[0].work);
-
-    // var personArr = [person1, person2, person3, person4, person5, person6];
-
-    // console.log(personArr);
-    // $('#Six > .main article:first-of-type > p').text(person1.comment);
-    // $('#Six > .main article:first-of-type .user > h3').text(person1.user);
-    // $('#Six > .main article:first-of-type .user > img').attr('src',person1.img);
-    // $('#Six > .main article:first-of-type .user > p').text(person1.work);
-        
-        
-            // carousel STOP when go to the coordinates - NOT WORKING PROPERLy
-
-// if ($('#One li:last-of-type').offset().left < 1500) {
-//     $('#One li.rightArrow').css({'display':'none'});
-// }
-// if ($('#One li:first-of-type').offset().left > 700) {
-//     $('#One li.leftArrow').css({'display':'none'});
-// }
-// $('#myH').text($('#One li:last-of-type').offset().left); // 2038
-// $('#myH').text($('#One li:first-of-type').offset().left); // 288
-
-
-
-        // SHOW and HIDE topUP button - with .hide() and .show()
-
-// $(window).scroll( function () {
-//     if ($(this).scrollTop() < 700) {
-//         $('#GoTop').hide();
-//     } else {
-//         $('#GoTop').show();
-//     }
-// });
-
-   
-            // Smooth move
-
-    // $('#GoTop').click( function (event) {
-    //     event.preventDefault();
-    //     $('body').animate({'scrollTop' : $('#topHeader').offset().top}, 1500).delay(2000);
-    // });
-
-
-            // ASIDE DIV - section TWO
-
-// $('.asideDiv').append('<img src="images/Bulgaria_map.gif">');
-//
-// var tapImg =  $('.asideDiv > img');
-//
-// tapImg.click(function (){
-//     tapImg.toggleClass('largeImage');
-//     $('.asideDiv').toggleClass('largeImage');
-//     $('.secondSection .goLarge').toggleClass('largeImage').show();
-//
-// });
-// $('.secondSection .goLarge').click(function () {
-//
-//     $('.secondSection .goLarge').hide();
-// });
-//CHANGE the image
-// $('.barPicture > img').attr('src', 'images/bulgaria_flag.png');
-
-
-
-
-
-//
-// var listSaltWfish = [
-//     {
-//         discription: '1. Атерина',
-//         image: 'images/fishes/atherina.jpg'
-//     },
-//     {
-//         discription: '2. Гопа',
-//         image: 'images/fishes/gopa.jpg'
-//     },
-//     {
-//         discription: '3. морски Кефал',
-//         image: 'images/fishes/kefal.jpg'
-//     },
-//     {
-//         discription: '4.',
-//         image: 'images/fishes/damsel.jpg'
-//     },
-//     {
-//         discription: '5',
-//         image: 'images/fishes/dragon.jpg'
-//     },
-//     {
-//         discription: '6',
-//         image: 'images/fishes/gilos1.jpg'
-//     },
-//     {
-//         discription: '7',
-//         image: 'images/fishes/gilos2.jpg'
-//     },
-//     {
-//         discription: '8',
-//         image: 'images/fishes/other1.jpg'
-//     },
-//     {
-//         discription: '9',
-//         image: 'images/fishes/Parablennius-tentacularis-Tentacled-blenny-Cocosel-de-mare.jpg'
-//     },
-//     {
-//         discription: '10',
-//         image: 'images/fishes/parka.jpg'
-//     },
-//     {
-//         discription: '11',
-//         image: 'images/fishes/popche.jpg'
-//     },
-//     {
-//         discription: '12',
-//         image: 'images/fishes/scorpina.jpg'
-//     },
-//
-//     {
-//         discription: '13',
-//         image: 'images/fishes/seabass.JPG'
-//     },
-//     {
-//         discription: '14',
-//         image: 'images/fishes/tsipura.jpg'
-//     },
-//     {
-//         discription: '15',
-//         image: 'images/fishes/sparos.jpg'
-//     },
-//     {
-//         discription: '16',
-//         image: 'images/fishes/   sargoz.jpg'
-//     },
-//     {
-//         discription: '17',
-//         image: 'images/fishes/salpa.jpg'
-//     },
-//     {
-//         discription: '18',
-//         image: 'images/fishes/murmuri.jpg'
-//     },
-//     {
-//         discription: '19',
-//         image: 'images/fishes/melanuri.jpg'
-//     },
-//     {
-//         discription: '20',
-//         image: 'images/fishes/fagri.jpg'
-//     },
-// ];
-
-
-
- //    [
- //    {
- //        discription: '1. Бабушка',
- //        image: 'images/fishes/freshWfishes/babushka.jpg'
- //    },
- //    {
- //        discription: '2. Мряна (бяла)',
- //        image: 'images/fishes/freshWfishes/biala_mriana.jpg'
- //    },
- //    {
- //        discription: '3. Бяла Риба',
- //        image: 'images/fishes/freshWfishes/biala_riba.jpg'
- //    },
- //    {
- //        discription: '4. Червеноперка',
- //        image: 'images/fishes/freshWfishes/chervenoperka.jpg'
- //    },
- //    {
- //        discription: '5. Костур',
- //        image: 'images/fishes/freshWfishes/kostur.jpg'
- //    },
- //    {
- //        discription: '6. Кротушка',
- //        image: 'images/fishes/freshWfishes/krotushka.jpg'
- //    },
- //    {
- //        discription: '7. Морунаж',
- //        image: 'images/fishes/freshWfishes/morunaj.jpg'
- //    },
- //    {
- //        discription: '8. Платика',
- //        image: 'images/fishes/freshWfishes/platika.jpg'
- //    },
- //    {
- //        discription: '9. Пъстърва (дъгова)',
- //        image: 'images/fishes/freshWfishes/pystyrva_dygova.jpg'
- //    },
- //    {
- //        discription: '10. Пъсърва',
- //        image: 'images/fishes/freshWfishes/pystyrva.jpg'
- //    },
- //    {
- //        discription: '11. Сом',
- //        image: 'images/fishes/freshWfishes/som.jpg'
- //    }
- // ]
-
-
-
-
-
-                    // BACK-UP
-
-
- // var popUpElement = $(".popUp");
-
- //        $('.mainConteiner img').addClass('myImage');
- //        $('.myImage').click(function () {
- //            var imageUrl = "url(\"" + this.src + "\")";
- //            $(this).toggleClass('large');
- //            popUpElement.css("background-image", imageUrl).show().addClass("large");
- //        });
-
- //        popUpElement.click(function () {
- //           $(this).removeClass('large').hide();
- //        });
- //                            // SLIDER left and right
-
- //        var slide = 0;
- //        // $('.imageRotate').addClass('positionRel');
- //        var leftAr = $('.leftArrow');
- //        var RightAr = $('.rightArrow');
-
- //        RightAr.click( function () {
- //            // var lastLi = $('.imageRotate li:last-of-type');
- //            slide -= 260;
- //            // $('.myImage').css('transform', 'translateX(' + slide + 'px)');
- //            $('.imageRotate li').css('transform', 'translateX(' + slide + 'px)');
- //            $('.imageRotate li').addClass('smoothRot');
- //            // $( ".imageRotate" ).animate({ "left": "+=260px" }, "slow" );
-
- //        });
-
- //        leftAr.click( function () {
- //            // var firstLi = $('.imageRotate li:first-of-type');
- //            slide += 260;
- //            // $('.myImage').css('transform', 'translateX(' + slide + 'px)');
- //            $('.imageRotate li').css('transform', 'translateX(' + slide + 'px)');
- //            $('.imageRotate li').addClass('smoothRot');
- //            // $( ".imageRotate" ).animate({ "left": "-=260px" }, "slow" );
-
- //        });
-
-
-
 
 

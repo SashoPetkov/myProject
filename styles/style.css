@@ -98,6 +98,8 @@ header a:hover {
     font-size: 1.4em;
     color: rgba(255, 139, 56, 1); 
 }
+
+
             /* MAIN Container*/
 main > section {
     width: 100%;
@@ -338,7 +340,7 @@ main > footer > article {
 .fistSection {
     width: 100%;
     display: flex;
-    align-items: flex-start;
+    align-items: center;
     justify-content: space-between;
     padding-bottom: 100px;
     padding-top: 100px;
@@ -392,6 +394,7 @@ main > footer > article {
 }
 #wrapper > .fistSection button{
     margin: 0 auto;
+    margin-top: 20px;
     display: block;
     width: 200px;
 }
@@ -847,12 +850,14 @@ textarea {
     #topHeader h1 {
         margin-top: 10px;
     }
-    #tmainNavigation li {
+    #mainNavigation li {
         display: flex;
         justify-content: center;
         align-items: center;
     }
-
+    #mainNavigation li a {
+        line-height: 1.2em;
+    }
             /* Main */
     section, main>header, footer {
         padding-right: 1%;
@@ -1232,13 +1237,13 @@ textarea {
         padding: 0;
     }
     .mainCarousel .arrows .mainConteiner,
-    .mainCarousel .arrows .mainConteiner1 {
+    .mainCarousel .arrows .mainConteiner1 { 
         width: 126%;
         margin: 0;
     }
-    .mainCarousel .imageRotate {
+    /*.mainCarousel .imageRotate {
         margin-left: 260px;
-    }
+    }*/
     #wrapper > section button {
         width: 200px;
         height: 50px;
@@ -1453,7 +1458,7 @@ textarea {
         left: 0;
     }
 
-     /*From JS*/
+    /*From JS*/
     .fistSection article #tab_3 {
         height: auto;
         flex-direction: column;
@@ -1486,7 +1491,7 @@ textarea {
 
 #tab_2 {
     width: 100%;
-    height: 302px;
+    /*height: 302px;*/
     display: none;
 }
 
@@ -1530,3 +1535,33 @@ main section article:first-of-type h2 {
     text-align: center;
     color: red;
 } 
+.mySnowFl {
+    position: fixed;
+    top: 16px;
+    right: 10px;
+    color: #DAA520;
+    animation-name: snowFlake;  
+    animation-duration: 5s;
+    animation-delay: 3s;
+    animation-iteration-count: infinite;
+    animation-timing-function: linear;
+}
+@keyframes snowFlake {
+    100% {transform: rotate(360deg);}
+}
+@-webkit-keyframes snowFlake{
+    100% {-webkit-transform: rotate(360deg);}
+}
+@-moz-keyframes snowFlake{
+    100% {-moz-transform: rotate(360deg);}
+}
+
+
+
+
+
+
+
+
+
+
