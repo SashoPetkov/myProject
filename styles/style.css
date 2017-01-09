@@ -105,8 +105,10 @@ main > section {
     width: 100%;
     background-image: url("../images/frontPage/background1.jpg");
     background-repeat: no-repeat;
-    background-size: 100% auto;
-    background-position: 0 -100px;
+    /*background-size: 100% auto;*/
+    background-size: cover;
+    /*background-position: 0 -100px;*/
+    background-position: center;
     height: 550px;
     display: flex;
     justify-content: space-between;
@@ -911,8 +913,11 @@ textarea {
     }
 
             /* Footer */
-    main > footer article, main > footer .social {
+    main > footer article {
         width: 50%;
+    }
+    main > footer .social {
+        width: 100%;
     }
     main > footer p {
         line-height: 16px;
