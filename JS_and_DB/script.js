@@ -476,19 +476,21 @@
         var cookieArr = document.cookie.split('=');
         var thisCookie = cookieArr[1];
         function checkCookie() {
-            searchUser.forEach( function(elementOne){
             // if (document.cookie !== '') {
-                if (thisCookie === elementOne.username) {
+                if (thisCookie === searchUser[0].username || thisCookie === searchUser[1].username) {
                     signTrue ();
                 } else if ($('#signIN input:first-of-type').val() != ""){
                    createCookie();
                 }
-            });
+            // });
         }
 
         function cookieName (){
             var arr = document.cookie.split('=');
+            if(arr[1] === searchUser[0].username || arr[1] === searchUser[1].username){
+                
             return arr[1];
+            }
         }
         
         // when DOM is ready  check for cookie
