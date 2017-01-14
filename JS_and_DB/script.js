@@ -473,17 +473,23 @@
             document.cookie = 'name='+ nameCookie +';expires=' + oneYear + ';path=/';
         }
         // check for recent cookie
+        var cookieArr = document.cookie.split('name=');
+        var thisCookie = cookieArr[1];
         function checkCookie() {
-            if (document.cookie != "") {
-                signTrue ();
-            } else if ($('#signIN input:first-of-type').val() != ""){
-               createCookie();
-            }
+            // searchUser.forEach( function(elementOne){
+            // if (document.cookie !== '') {
+                // if (thisCookie === elementOne.username) {
+                if (thisCookie === searchUser[0].username || thisCookie === searchUser[1].username) {
+                    signTrue ();
+                } else if ($('#signIN input:first-of-type').val() != ""){
+                   createCookie();
+                }
+            // });
         }
 
         function cookieName (){
-            var arr = document.cookie.split('=');
-            return arr[1];
+            var arr = document.cookie.split('name=');
+            return arr;
         }
         
         // when DOM is ready  check for cookie
