@@ -473,12 +473,17 @@
             document.cookie = 'name='+ nameCookie +';expires=' + oneYear + ';path=/';
         }
         // check for recent cookie
+        var cookieArr = document.cookie.split('=');
+        var thisCookie = cookieArr[1];
         function checkCookie() {
-            if (document.cookie != "") {
-                signTrue ();
-            } else if ($('#signIN input:first-of-type').val() != ""){
-               createCookie();
-            }
+            searchUser.forEach( function(elementOne){
+            // if (document.cookie !== '') {
+                if (thisCookie === elementOne.username) {
+                    signTrue ();
+                } else if ($('#signIN input:first-of-type').val() != ""){
+                   createCookie();
+                }
+            });
         }
 
         function cookieName (){
