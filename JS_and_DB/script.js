@@ -489,7 +489,7 @@
 
         function cookieName (){
             var arr = document.cookie.split('name=');
-            return arr;
+            return arr[1];
         }
         
         // when DOM is ready  check for cookie
