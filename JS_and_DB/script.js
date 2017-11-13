@@ -132,7 +132,7 @@
             // GO to TOP smooth
 
         $('#GoTop').click(function(){
-            $('body').animate({scrollTop : 0},800);
+            $('body, html').animate({scrollTop : 0},800);
         });
 
 
@@ -141,7 +141,7 @@
             $('#mainNavigation ' + numberLi + ' a').click(
                 function (event) {
                     event.preventDefault();
-                    $('body').animate({scrollTop : $("." + targetSec ).offset().top},600);
+                    $('body, html').animate({scrollTop : $("." + targetSec ).offset().top},600);
                 }
             );
         }
